@@ -5,7 +5,7 @@ Vinylset includes 620 tracks extracted from original vinyl recordings and labell
 Unlike traditional speech quality datasets, each recording is a quality condition. MOS human ratings are obtained from 506 participants, with an average of 15 scores per track.
 Detailed information on Vinylset can be found in the ICASSP paper. 
 
-This dataset has been used to create the QAMA model which is a reference-free metric for vinyl collections. 
+This dataset has been used to create the [QAMA model](https://github.com/alessandroragano/music-archive-quality-prediction) which is a reference-free metric for vinyl collections. 
 
 ## Download
 Recordings are sourced from the Internet Archive. After cloning the repo follow the instructions below to download the dataset. 
