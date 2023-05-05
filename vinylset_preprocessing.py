@@ -4,6 +4,8 @@ import soundfile as sf
 import math
 import librosa
 import click
+import re
+import numpy as np
 
 @click.command()
 @click.argument('in_path', type=click.Path(exists=True))
@@ -19,11 +21,8 @@ def preproc(in_path, out_path):
     target_freq = 44100
     for id_file, file in enumerate(os.listdir(in_path)):
         print(f'ID: {id_file}  -  FILE: {file}')
-        target_filename = file.replace(",", "")
-        target_filename = target_filename.strip().replace(" ", "")
-        target_filename, _ = os.path.splitext(target_filename)
-        target_filename = target_filename.replace(".", "")
-        target_filename = target_filename.replace("-", "")
+        filename, _ = os.path.splitext(file)
+        target_filename = re.sub('\W+', '', filename)
         if not os.path.isdir(out_path):
             os.mkdir(out_path)
         filepath = os.path.join(in_path, file)
@@ -41,23 +40,24 @@ def preproc(in_path, out_path):
             out_filepath = os.path.join(out_path, target_filename + '.flac')
 
         where = 'middle'
-        # Take before or middle or after and write to file
-        #wave, orig_freq = torchaudio.load(filepath)
-        #wave = torchaudio.transforms.Resample(orig_freq, target_freq)(wave)
-        #wave, _ = sf.read(filepath, samplerate=target_freq)
+        # Take before or middle or after and write to file (middle is the default behaviour)
         wave, _ = librosa.load(filepath, sr=target_freq, mono=False)
-        if where == 'middle':
-            start = wave.shape[1]//2 - math.floor(5 * target_freq)
-            end = wave.shape[1]//2 + math.ceil(5 * target_freq)
-        elif where == 'before':
-            start = wave.shape[1]//2 - math.floor(15 * target_freq)
-            end = wave.shape[1]//2 - math.ceil(5 * target_freq)
-            out_filepath = os.path.splitext(out_filepath)[0] + '_' + where + '.wav'
-        elif where == 'after':
-            start = wave.shape[1]//2 + math.floor(5 * target_freq)
-            end = wave.shape[1]//2 + math.ceil(15 * target_freq)    
-            out_filepath = os.path.splitext(out_filepath)[0] + '_' + where + '.wav' 
-        wave = wave[:,start:end]
+        if (len(wave.shape) == 1):
+            wave = np.expand_dims(wave, 1).T
+        
+        if wave.shape[1] >= 10*target_freq:
+            if where == 'middle':
+                start = wave.shape[1]//2 - math.floor(5 * target_freq)
+                end = wave.shape[1]//2 + math.ceil(5 * target_freq)
+            elif where == 'before':
+                start = wave.shape[1]//2 - math.floor(15 * target_freq)
+                end = wave.shape[1]//2 - math.ceil(5 * target_freq)
+                out_filepath = os.path.splitext(out_filepath)[0] + '_' + where + '.wav'
+            elif where == 'after':
+                start = wave.shape[1]//2 + math.floor(5 * target_freq)
+                end = wave.shape[1]//2 + math.ceil(15 * target_freq)    
+                out_filepath = os.path.splitext(out_filepath)[0] + '_' + where + '.wav' 
+            wave = wave[:,start:end]
 
         sf.write(out_filepath, wave.T, samplerate=target_freq, format='flac')
 
@@ -70,7 +70,7 @@ def preproc(in_path, out_path):
         subprocess.call(aache_320)
         os.remove(out_filepath)
 
-        # Convert to wav (it will not improve audio quality, it's just better when integrating with some data loaders that expect wav files)
+        # Convert to wav (it will not improve audio quality, it's just better when integrating with some load functions that might expect wav files)
         dst_filepath_wav = os.path.splitext(dst_filepath)[0] + '.wav'
         #if not os.path.isfile(dst_filepath_wav):
         wav_convert = f'ffmpeg -i {dst_filepath} {dst_filepath_wav}'.split(' ')
