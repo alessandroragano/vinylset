@@ -20,7 +20,6 @@ This will download the tracks to the directory `data`
 
 ## Preprocessing
 Vinylset tracks have been preprocessed to collect MOS human ratings and to develop the QAMA model. Preprocessing consists of 
-* Mono
 * 10 seconds segment extracted in the middle of each track
 * Conversion to HE-AAC 320 kbps to avoid network stalling
 
