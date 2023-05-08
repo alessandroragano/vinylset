@@ -1,6 +1,6 @@
 # Vinylset
 ## Purpose
-Vinylset includes 620 tracks extracted from original vinyl recordings and labelled with mean opinion score (MOS). The dataset includes original real-world recordings and represent a very challenging scenario to develop quality models. The preservation of cultural heritage through audio archives is primarily focused on the process of digitization, which involves curating audio collections from various analog media formats like wax cylinders, vinyl discs, and 78 RPMs. The purpose of Vinylset is allowing researchers to develop quality models for music collections in order to improve accessibility and usability.
+Vinylset includes 620 tracks extracted from original vinyl recordings and labelled with mean opinion score (MOS). The dataset includes original real-world recordings and represents a very challenging scenario to develop quality models. The preservation of cultural heritage through audio archives is primarily focused on the process of digitization, which involves curating audio collections from various analog media formats like wax cylinders, vinyl discs, and 78 RPMs. The purpose of Vinylset is allowing researchers to develop quality models for music collections in order to improve accessibility and usability.
 
 Unlike traditional speech quality datasets, each recording is a quality condition. MOS human ratings are obtained from 506 participants, with an average of 15 scores per track.
 Detailed information on Vinylset can be found in the ICASSP paper. 
