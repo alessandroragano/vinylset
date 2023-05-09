@@ -3,7 +3,7 @@
 Vinylset includes 620 tracks extracted from original vinyl recordings and labelled with mean opinion score (MOS). The dataset includes original real-world recordings and represents a very challenging scenario to develop quality models. The preservation of cultural heritage through audio archives is primarily focused on the process of digitization, which involves curating audio collections from various analog media formats like wax cylinders, vinyl discs, and 78 RPMs. The purpose of Vinylset is allowing researchers to develop quality models for music collections in order to improve accessibility and usability.
 
 Unlike traditional speech quality datasets, each recording is a quality condition. MOS human ratings are obtained from 506 participants, with an average of 15 scores per track.
-Detailed information on Vinylset can be found in the ICASSP paper. 
+Detailed information on Vinylset can be found in the [ICASSP paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10096274). 
 
 This dataset has been used to create the [QAMA model](https://github.com/alessandroragano/music-archive-quality-prediction) which is a reference-free metric for vinyl collections. 
 
@@ -46,7 +46,7 @@ This will process files as done in the Vinlyset corpus.
 MOS labels are in `vinylset_MOS.txt`
 
 ## Paper and license
-If you use Vinylset please cite this paper: 
+If you use Vinylset please cite this [paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10096274): 
 
 A. Ragano, E. Benetos, and A. Hines "Audio Quality Assessment of Vinyl Music Collections using Self-Supervised Learning", in IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP) 2023 (link coming soon).
 
