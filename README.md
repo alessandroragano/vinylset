@@ -48,7 +48,7 @@ MOS labels are in `vinylset_MOS.txt`
 ## Paper and license
 If you use Vinylset please cite this [paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10096274): 
 
-A. Ragano, E. Benetos, and A. Hines "Audio Quality Assessment of Vinyl Music Collections using Self-Supervised Learning", in IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP) 2023 (link coming soon).
+A. Ragano, E. Benetos, and A. Hines "Audio Quality Assessment of Vinyl Music Collections using Self-Supervised Learning", in IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP) 2023.
 
 
 The dataset is licensed under the Internet Archive [copyright policy](https://help.archive.org/help/rights/).
