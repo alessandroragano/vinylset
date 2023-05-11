@@ -51,7 +51,7 @@ If you use Vinylset please cite this [paper](https://ieeexplore.ieee.org/stamp/s
 A. Ragano, E. Benetos, and A. Hines "Audio Quality Assessment of Vinyl Music Collections using Self-Supervised Learning", in IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP) 2023.
 
 
-The dataset is licensed under the Internet Archive [copyright policy](https://help.archive.org/help/rights/).
+The sourced audio data is licensed under the Internet Archive [copyright policy](https://help.archive.org/help/rights/).
 
 The code is licensed under MIT license.
 
